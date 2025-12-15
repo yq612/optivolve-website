@@ -19,8 +19,14 @@ export default defineConfig({
     }),
     presetMini(),
   ],
-  shortcuts: [
-    // shortcuts to multiple utilities
-    ['btn', 'px-6 py-3 rounded-3 border-none inline-block bg-green-400 text-white cursor-pointer !outline-none hover:bg-green-600 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-  ],
+  shortcuts: {
+    // 只在移动端显示
+    'mobile-only': 'md:hidden',
+    // 只在 PC 端显示
+    'pc-only': 'hidden md:block',
+    // 移动端间距
+    'mobile-px-100': 'md:px-0 px-100',
+    'mobile-py-50': 'md:py-0 py-50',
+    'mobile-py-100': 'md:py-0 py-100',
+  },
 })

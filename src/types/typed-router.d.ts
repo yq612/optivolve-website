@@ -20,9 +20,14 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...all]': RouteRecordInfo<'/[...all]', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
-    '/docs/': RouteRecordInfo<'/docs/', '/docs', Record<never, never>, Record<never, never>>,
-    '/help/': RouteRecordInfo<'/help/', '/help', Record<never, never>, Record<never, never>>,
     '/main/': RouteRecordInfo<'/main/', '/main', Record<never, never>, Record<never, never>>,
+    '/main/components/Ambition': RouteRecordInfo<'/main/components/Ambition', '/main/components/Ambition', Record<never, never>, Record<never, never>>,
     '/main/components/BannerSection': RouteRecordInfo<'/main/components/BannerSection', '/main/components/BannerSection', Record<never, never>, Record<never, never>>,
+    '/main/components/Concat': RouteRecordInfo<'/main/components/Concat', '/main/components/Concat', Record<never, never>, Record<never, never>>,
+    '/main/components/Core': RouteRecordInfo<'/main/components/Core', '/main/components/Core', Record<never, never>, Record<never, never>>,
+    '/main/components/Focus': RouteRecordInfo<'/main/components/Focus', '/main/components/Focus', Record<never, never>, Record<never, never>>,
+    '/main/components/Growth': RouteRecordInfo<'/main/components/Growth', '/main/components/Growth', Record<never, never>, Record<never, never>>,
+    '/main/components/Proposition': RouteRecordInfo<'/main/components/Proposition', '/main/components/Proposition', Record<never, never>, Record<never, never>>,
+    '/main/components/Trust': RouteRecordInfo<'/main/components/Trust', '/main/components/Trust', Record<never, never>, Record<never, never>>,
   }
 }

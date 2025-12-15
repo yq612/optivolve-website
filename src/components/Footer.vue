@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { APP_NAME, WORK_TIME, EMAIL, ADDRESS, COPYRIGHT } from "@/config/index";
+import { APP_NAME, COPYRIGHT, menuList } from "@/config/index";
 import { useRouter } from "vue-router";
 import { onMounted, ref } from "vue";
+import type { MenuItem } from "@/config/index";
 
 const router = useRouter();
 const isVisible = ref(false);
 
 const theme = ref("dark");
-
-function goto(path: any) {
-  router.push(path);
-}
 
 onMounted(() => {
   // 延迟一小段时间后显示，以确保DOM已完全加载
@@ -27,103 +24,102 @@ watch(router.currentRoute, (newRoute) => {
   }
 });
 
-// @click="goto({ path: 'docs', query: { tag: 'privacy' } })"
+async function handleNavigation(item: MenuItem) {
+  const { selector } = item;
+
+  // 如果目标路由与当前路由不同，先进行路由跳转
+  if (selector) {
+    await nextTick();
+    // 给页面渲染一些时间
+    setTimeout(() => scrollToElement(selector), 100);
+  }
+
+  // 如果在同一页面且有选择器，直接滚动
+  if (selector) scrollToElement(selector);
+}
+
+function scrollToElement(selector: string) {
+  const element = document.querySelector(`#${selector}`);
+  if (!element) {
+    console.warn(`Element with id "${selector}" not found`);
+    return;
+  }
+
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
 </script>
 
 <template>
   <transition name="fade-slide" appear>
-    <div class="footer-wrapper relative overflow-hidden text-white">
-      <div
-        class="flex justify-between md:py-70 py-100 area mx-auto md:flex-row flex-col md:px-0 px-90"
-      >
-        <div class="md:w-545 w-full md:text-40 text-60 text-white uppercase mr-100">
-          <div class="flex items-center md:gap-20 gap-40 mb-45">
+    <div class="footer-wrapper relative overflow-hidden text-white bg-#222020">
+      <div class="area md:pt-40 pt-100 md:px-0 px-50">
+        <div class="flex justify-between items-center md:mb-20 mb-50">
+          <div class="flex items-center">
             <img
-              src="@/assets/images/common/logo.svg"
+              src="@/assets/images/common/logo-white.svg"
               alt="logo"
-              class="md:h-48 h-140 w-auto"
+              class="w-auto md:h-56 h-100 md:mr-15 mr-50"
             />
-            {{ APP_NAME }}
+            <div class="text24 md:w-100 w-full uppercase">{{ APP_NAME }}</div>
           </div>
+        </div>
+        <div
+          class="flex justify-between items-center mb-40 font-light md:flex-nowrap flex-wrap"
+        >
           <div
-            class="md:text-16 text-50 text-[#B4BBC5] md:lh-24 lh-60 md:mb-40 mb-70 font-thin"
+            class="md:text-16 text-45 md:lh-24 lh-90 cursor-pointer hover:decoration-underline"
+            v-for="item in menuList"
+            :key="item.name"
+            @click="handleNavigation(item)"
           >
-            GiroFácil es una plataforma de préstamos registrada en la CNBV (Comisión
-            Nacional Bancaria y de Valores) de México, que ofrece préstamos digitales
-            seguros y transparentes de hasta MXN$30,000, con aprobación rápida, desembolso
-            seguro y la oportunidad de disfrutar de ofertas exclusivas sin intereses.
-          </div>
-          <BtnDownload class="!md:h-65 !h-140 md:mb-0 mb-50" />
-        </div>
-        <div class="md:block hidden">
-          <div class="md:text-18 text-50 font-bold mb-40 mt-10 text-white">
-            Enlaces rápidos
-          </div>
-          <div class="text-18 text-#838E9E">
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: '/' })"
-            >
-              Pedir Préstamo
-            </div>
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: 'help' })"
-            >
-              Antifraude
-            </div>
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: 'remove' })"
-            >
-              FAQ
-            </div>
+            {{ item.name }}
           </div>
         </div>
-        <div class="md:block hidden">
-          <div class="md:text-18 text-50 font-bold mb-40 mt-10 text-white">Acuerdo</div>
-          <div class="text-18 text-#838E9E">
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: 'docs', query: { tag: 'privacy' } })"
-            >
-              Política de Privacidad
-            </div>
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: 'docs', query: { tag: 'terms' } })"
-            >
-              Términos de Servicio
-            </div>
-            <div
-              class="cursor-pointer hover:underline mb-20"
-              @click="goto({ path: 'remove' })"
-            >
-              Account Deletion Instructions
-            </div>
-          </div>
+        <div
+          class="md:text-16 text-45 md:lh-24 lh-50 text-[rgba(255,255,255,0.65)] font-bold md:mb-10 mb-50"
+        >
+          Accelerating the Rise of Digital Businesses in Emerging Markets
         </div>
-        <div class="md:block hidden w-320">
-          <div class="md:text-18 text-50 font-bold mb-40 mt-10 text-white">
-            Servicio al Cliente
-          </div>
-          <div class="text-18 text-#838E9E">
-            <div class="cursor-pointer hover:underline mb-20">Correo: {{ EMAIL }}</div>
-            <div class="cursor-pointer hover:underline mb-20">
-              Hora de servicio: {{ WORK_TIME }}
-            </div>
-            <div class="cursor-pointer hover:underline mb-20">
-              Dirección：{{ ADDRESS }}
-            </div>
-          </div>
+        <div
+          class="md:text-16 text-45 md:lh-24 lh-50 text-[rgba(255,255,255,0.65)] md:mb-20 mb-50"
+        >
+          Future Harvest HK Limited is a global investment and operations group built to
+          unlock the next wave of growth across high-potential digital economies. By
+          integrating
+          <span class="font-bold"
+            >technology capability, financial infrastructure, and large-scale
+            distribution</span
+          >, we empower mobile-internet ventures to scale with speed, efficiency, and
+          global ambition.
         </div>
-      </div>
-
-      <div
-        class="items-center area justify-center font-thin text-center md:text-16 text-50 flex md:h-100 h-180"
-        style="border-top: 1px solid rgba(255, 255, 255, 0.2)"
-      >
-        {{ COPYRIGHT }}
+        <div
+          class="md:text-16 text-45 md:lh-24 lh-50 text-[rgba(255,255,255,0.65)] font-bold md:mb-10 mb-50"
+        >
+          We go beyond traditional investment.
+        </div>
+        <div
+          class="md:text-16 text-45 md:lh-24 lh-50 text-[rgba(255,255,255,0.65)] md:mb-20 mb-50"
+        >
+          We partner, build, and operate alongside our portfolio teams—delivering product
+          support, market access, user-growth channels, and compliance-ready financial
+          solutions.
+        </div>
+        <div
+          class="md:text-16 text-45 md:lh-24 lh-50 text-[rgba(255,255,255,0.65)] md:mb-50 mb-100"
+        >
+          With active footprints across Hong Kong, Singapore, Southeast Asia, South Asia,
+          Africa, and the Americas, we create a unified ecosystem that helps digital
+          platforms break market barriers and achieve sustainable global expansion.
+        </div>
+        <div
+          class="md:h-55 h-150 flex justify-center items-center md:text-16 text-45 text-[rgba(255,255,255,0.65)]"
+          style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+        >
+          {{ COPYRIGHT }}
+        </div>
       </div>
     </div>
   </transition>
