@@ -36,7 +36,7 @@ const list = [
 <template>
   <div class="md:py-100 py-200 scroll-mt-50" id="business-focus">
     <div
-      class="area flex flex-col items-center justify-center gap-20 md:px-0 px-100 text-center"
+      class="area flex flex-col items-center justify-center gap-20 md:px-0 px-50 text-center"
     >
       <div class="md:text-48 text-60 font-bold">Business Focus</div>
       <div class="md:text-20 text-45 md:lh-30 lh-65 text-[ rgba(13,27,42,0.5)] mb-30">

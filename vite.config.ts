@@ -16,6 +16,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     server: {
       host: true,
       port: 3000,
+      allowedHosts: ['7b3fca16.r22.cpolar.top'],
       proxy: {
         '/api': {
           target: '',

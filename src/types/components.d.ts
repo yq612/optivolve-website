@@ -8,12 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    BtnDownload: typeof import('./../components/BtnDownload.vue')['default']
     Collapse: typeof import('./../components/Collapse.vue')['default']
-    DownloadSection: typeof import('./../components/DownloadSection.vue')['default']
-    FlipCard: typeof import('./../components/FlipCard.vue')['default']
     Footer: typeof import('./../components/Footer.vue')['default']
-    GetSection: typeof import('./../components/GetSection.vue')['default']
     HeaderNav: typeof import('./../components/HeaderNav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
