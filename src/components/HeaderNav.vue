@@ -45,38 +45,31 @@ const [mobileMenuVisible, toggleMobileMenuVisible] = useToggle(false);
   <div>
     <!-- PC端 -->
     <div
-      class="md:flex fixed hidden left-0 right-0 z-10 h-200 items-center transition-all duration-250 md:h-[var(--nav-bar-height)] z-999 bg-white top-0 md:px-0 px-70"
+      class="md:flex fixed hidden left-0 right-0 z-10 h-200 items-center transition-all duration-250 md:h-[var(--nav-bar-height)] z-999 bg-transparent top-0 md:px-0 px-70"
+      :class="{ 'bg-white': isFixed }"
     >
-      <div class="w-1200 mx-auto flex items-center justify-center h-100%">
-        <div class="logo flex items-center mr-20">
+      <div class="area flex items-center justify-center h-100%">
+        <div class="logo flex items-center mr-40">
           <img
             src="@/assets/images/common/logo.svg"
             alt="logo"
-            class="md:mr-10 mr-45 w-auto h-90 md:h-34"
+            class="w-auto h-90 md:h-28"
           />
-          <div uppercase class="md:text-14 text-20 font-bold text-#BA1819 w-100 lh-18">
-            {{ APP_NAME }}
-          </div>
         </div>
         <div class="flex item-center gap-30 flex-1">
           <div
             v-for="item in menuList.slice(0, 4)"
             :key="item.name"
-            class="h-100% md:flex items-center relative text-12 cursor-pointer hover:decoration-underline"
+            class="h-100% md:flex items-center relative text-14 cursor-pointer hover:text-black text-[var(--primary-color)] transition-all duration-200"
             @click="handleNavigation(item)"
           >
             {{ item.name }}
           </div>
         </div>
-        <div class="flex item-center gap-30">
-          <div
-            v-for="item in menuList.slice(4)"
-            :key="item.name"
-            class="h-100% md:flex items-center relative text-12 cursor-pointer hover:decoration-underline"
-            @click="handleNavigation(item)"
-          >
-            {{ item.name }}
-          </div>
+        <div
+          class="w-164 h-44 bg-[var(--primary-color)] border-rd-80 text-15 font-semibold text-#1B152B flex items-center justify-center"
+        >
+          Payment API
         </div>
       </div>
     </div>
@@ -93,7 +86,6 @@ const [mobileMenuVisible, toggleMobileMenuVisible] = useToggle(false);
             class="text-bold text-55 text-[var(--primary-color)] flex items-center gap-30 uppercase"
           >
             <img src="@/assets/images/common/logo.svg" alt="logo" class="w-auto h-65" />
-            {{ APP_NAME }}
           </div>
         </div>
         <div>

@@ -16,18 +16,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     server: {
       host: true,
       port: 3000,
-      allowedHosts: ['7d093541.r5.cpolar.top'],
+      // allowedHosts: ['7d093541.r5.cpolar.top'],
       proxy: {
         '/api': {
           target: '',
           ws: false,
           changeOrigin: true,
-        },
-        '/html': {
-          target: 'https://app.urieos.com/',
-          ws: false,
-          changeOrigin: true,
-          rewrite: path => path.replace(/^\/html/, ''),
         },
       },
     },

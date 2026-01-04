@@ -40,5 +40,8 @@
     "src/types/auto-imports.d.ts",
     "src/types/typed-router.d.ts",
     "tests/*.ts"
+  ],
+  "exclude": [
+    "src/pages/main/components/Ambition.vue"
   ]
 }

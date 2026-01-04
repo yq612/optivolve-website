@@ -22,31 +22,19 @@ export interface MenuItem {
 /** 菜单列表 */
 export const menuList: MenuItem[] = [
   {
-    name: 'Value Proposition',
+    name: 'Features',
     selector: 'value-proposition',
   },
   {
-    name: 'Core Capabilities',
+    name: 'Pricing',
     selector: 'core-capabilities',
   },
   {
-    name: 'Business Focus',
+    name: 'Careers',
     selector: 'business-focus',
   },
   {
-    name: 'Global Presence',
+    name: 'Help',
     selector: 'global-presence',
-  },
-  {
-    name: 'Why Trust Us',
-    selector: 'why-trust-us',
-  },
-  {
-    name: 'Purpose&Ambition',
-    selector: 'purpose-ambition',
-  },
-  {
-    name: 'Contact Us',
-    selector: 'contact-us',
   },
 ]
