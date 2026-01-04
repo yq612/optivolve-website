@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useToast } from "vue-toast-notification";
+
+const toast = useToast();
 const step = ["Contact Us", "Sign contract", "Integration", "Product release"];
 
 const form = ref({
@@ -11,7 +14,35 @@ const form = ref({
 });
 
 const handleSubmit = () => {
-  console.log(form.value);
+  // 验证表单字段
+  if (
+    !form.value.name.trim() ||
+    !form.value.email.trim() ||
+    !form.value.phone.trim() ||
+    !form.value.companyName.trim() ||
+    !form.value.companyWebsite.trim() ||
+    !form.value.message.trim()
+  ) {
+    toast.error("Please complete all fields", {
+      position: "top-right",
+    });
+    return;
+  }
+
+  // 清空表单
+  form.value = {
+    name: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    companyWebsite: "",
+    message: "",
+  };
+
+  // 显示成功提示
+  toast.success("Message sent successfully!", {
+    position: "top-right",
+  });
 };
 </script>
 
@@ -87,7 +118,7 @@ const handleSubmit = () => {
           ></textarea>
         </div>
         <div
-          class="w-full h-60 rounded-8 bg-#47D7AC flex items-center justify-center text-20 text-#211551 font-semibold"
+          class="hover-scale w-full h-60 rounded-8 bg-#47D7AC flex items-center justify-center text-20 text-#211551 font-semibold cursor-pointer"
           @click="handleSubmit"
         >
           Contact Us
