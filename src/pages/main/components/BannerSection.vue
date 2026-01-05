@@ -78,7 +78,7 @@ function scrollToElement(selector: string) {
       <img
         src="@/assets/images/home/post-banner.webp"
         alt="banner-img"
-        class="w-auto absolute -md:right-110 -right-230 -md:top-50 top-50 md:h-960 h-1000"
+        class="w-auto absolute -md:right-110 -right-10 -md:top-50 top-50 md:h-960 h-1000"
       />
       <img
         src="@/assets/images/home/icon-banner-record.svg"
