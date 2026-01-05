@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick } from "vue";
-import { menuList, APP_NAME } from "@/config/index";
+import { menuList } from "@/config/index";
 import type { MenuItem } from "@/config/index";
 import { useToggle } from "@vueuse/core";
 

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import BannerSection from "./components/BannerSection.vue";
-import Why from "./components/Why.vue";
-import Business from "./components/Business.vue";
-import Services from "./components/Services.vue";
-import Question from "./components/question.vue";
-import Map from "./components/Map.vue";
-import Partners from "./components/Partners.vue";
-import JoinUs from "./components/JoinUs.vue";
+import BannerSection from './components/BannerSection.vue'
+import Why from './components/Why.vue'
+import Business from './components/Business.vue'
+import Services from './components/Services.vue'
+import Question from './components/question.vue'
+import Map from './components/Map.vue'
+import Partners from './components/Partners.vue'
+import JoinUs from './components/JoinUs.vue'
+import About from './components/About.vue'
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import JoinUs from "./components/JoinUs.vue";
     <Question />
     <Map />
     <Partners />
+    <About />
     <JoinUs />
   </div>
 </template>

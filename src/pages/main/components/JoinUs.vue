@@ -47,7 +47,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div class="py-150">
+  <div id="contact-section" class="py-150">
     <div
       class="area h-666 rounded-16 bg-#F4FBF9 px-40 py-40 flex justify-between items-center"
     >

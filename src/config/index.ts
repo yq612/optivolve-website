@@ -3,10 +3,10 @@
  */
 
 /** 应用名称 */
-export const APP_NAME = import.meta.env.VITE_APP_NAME || 'vexora'
+export const APP_NAME = import.meta.env.VITE_APP_NAME || 'Vexora'
 
 /** 邮箱 */
-export const EMAIL = ['sales@vexora.tech', 'support@vexora.tech']
+export const EMAIL = 'support@vexora.tech'
 
 /** 地址 */
 export const ADDRESS = '---'
@@ -22,19 +22,23 @@ export interface MenuItem {
 /** 菜单列表 */
 export const menuList: MenuItem[] = [
   {
-    name: 'Features',
+    name: 'Home',
+    selector: 'banner-section',
+  },
+  {
+    name: 'Advantages',
     selector: 'why-section',
   },
   {
-    name: 'Pricing',
+    name: 'Services',
     selector: 'services-section',
   },
   {
-    name: 'Careers',
-    selector: 'business-focus',
+    name: 'Global Reach',
+    selector: 'map-section',
   },
   {
-    name: 'Help',
-    selector: 'question-section',
+    name: 'About',
+    selector: 'about-section',
   },
 ]

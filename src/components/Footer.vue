@@ -166,8 +166,7 @@ function scrollToElement(selector: string) {
           <div>
             <div class="text-16 font-semibold mb-22 text-white">Contact</div>
             <ul class="text-16 text-[rgba(255,255,255,0.65)]">
-              <li class="flex items-center gap-4 mb-20">{{ EMAIL[0] }}</li>
-              <li class="flex items-center gap-4 mb-20">{{ EMAIL[1] }}</li>
+              <li class="flex items-center gap-4 mb-20">{{ EMAIL }}</li>
             </ul>
           </div>
         </div>

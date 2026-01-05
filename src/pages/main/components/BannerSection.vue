@@ -1,3 +1,30 @@
+<script setup lang="ts">
+async function handleNavigation(selector: string) {
+  // 如果目标路由与当前路由不同，先进行路由跳转
+  if (selector) {
+    await nextTick();
+    // 给页面渲染一些时间
+    setTimeout(() => scrollToElement(selector), 100);
+  }
+
+  // 如果在同一页面且有选择器，直接滚动
+  if (selector) scrollToElement(selector);
+}
+
+function scrollToElement(selector: string) {
+  const element = document.querySelector(`#${selector}`);
+  if (!element) {
+    console.warn(`Element with id "${selector}" not found`);
+    return;
+  }
+
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+</script>
+
 <template>
   <div
     id="banner-section"
@@ -11,7 +38,8 @@
         presence to ensure secure, efficient, and reliable transactions.
       </div>
       <div
-        class="w-187 h-69 border-rd-8 bg-[#47D7AC] text-24 flex items-center justify-center font-semibold"
+        class="hover-scale w-187 h-69 border-rd-8 bg-[#47D7AC] text-24 flex items-center justify-center font-semibold cursor-pointer"
+        @click="handleNavigation('contact-section')"
       >
         Contact Us
       </div>
