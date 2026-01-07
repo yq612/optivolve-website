@@ -1,7 +1,7 @@
 <template>
   <div
     id="map-section"
-    class="map-section h-800 md:block hidden"
+    class="map-section h-800 md:block hidden mt-150"
     style="scroll-margin-top: 160px"
   >
     <div class="area relative h-full">
