@@ -17,7 +17,7 @@ const step = [
       "We are an international payment service provider (PSP) working with local partners worldwide to deliver localized payment solutions to global clients. We specialize in international merchants and focus on Alternative Payment Methods (APMs), including online banking, ATM cards, e-wallets, QR payments, and OTC transactions, with global card acquiring as a key strategic focus.",
   },
   {
-    title: "Purpuse",
+    title: "Purpose",
     image: postAbout2,
     desc:
       "To simplify global payments and remove barriers in complex and emerging markets, enabling businesses to accept payments securely and efficiently anywhere in the world.",
@@ -110,7 +110,7 @@ function changeIndex(direction: number) {
             </div>
           </SwiperSlide>
         </Swiper>
-        <div class="flex items-center justify-center gap-50 md:mt-30 mt-50">
+        <div class="flex items-center justify-center gap-50 md:mt-30 mt-50" v-if="false">
           <img
             :src="ArrowRightActive"
             alt="arrow"

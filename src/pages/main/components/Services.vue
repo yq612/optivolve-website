@@ -27,7 +27,7 @@
             class="md:text-16 text-44 md:lh-24 lh-55 text-[rgba(27,21,43,0.5)] md:px-0 px-50 md:pb-0 pb-30"
           >
             Over 80% success rate for the global card acquiring channel, including the GCC
-            regior
+            region
           </div>
         </div>
         <div
